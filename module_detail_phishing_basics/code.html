@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social Engineering Toolkit Shield (SETS) - Phishing Basics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#d3fbff",
+              "surface-container-high": "#2a2a2b",
+              "surface-container-low": "#1c1b1c",
+              "surface-container": "#201f20",
+              "surface-dim": "#131314",
+              "secondary-fixed": "#7df4ff",
+              "primary-fixed-dim": "#b0c6ff",
+              "outline": "#8c90a1",
+              "on-tertiary": "#690003",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "primary": "#b0c6ff",
+              "surface-tint": "#b0c6ff",
+              "on-secondary-fixed": "#002022",
+              "on-primary-container": "#002661",
+              "inverse-primary": "#0058cb",
+              "on-secondary-container": "#00686f",
+              "on-surface-variant": "#c2c6d8",
+              "surface-container-highest": "#353436",
+              "on-surface": "#e5e2e3",
+              "on-tertiary-fixed": "#410001",
+              "background": "#131314",
+              "inverse-on-surface": "#313031",
+              "on-tertiary-container": "#5c0002",
+              "tertiary-fixed-dim": "#ffb4aa",
+              "primary-fixed": "#d9e2ff",
+              "tertiary-fixed": "#ffdad5",
+              "on-tertiary-fixed-variant": "#930005",
+              "on-background": "#e5e2e3",
+              "tertiary": "#ffb4aa",
+              "on-primary": "#002d6f",
+              "tertiary-container": "#ff5545",
+              "on-primary-fixed-variant": "#00429c",
+              "on-error": "#690005",
+              "surface-variant": "#353436",
+              "surface": "#131314",
+              "secondary-fixed-dim": "#00dbe9",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#424655",
+              "inverse-surface": "#e5e2e3",
+              "surface-container-lowest": "#0e0e0f",
+              "surface-bright": "#3a393a",
+              "secondary-container": "#00eefc",
+              "on-secondary-fixed-variant": "#004f54",
+              "on-primary-fixed": "#001945",
+              "primary-container": "#568dff",
+              "on-secondary": "#00363a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(28, 27, 28, 0.7);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(140, 144, 161, 0.15);
+            border-left: 1px solid rgba(140, 144, 161, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<aside class="fixed top-20 left-4 z-[998] w-56 bg-neutral-950/90 backdrop-blur-xl border border-outline-variant/40 rounded-2xl p-3 hidden md:block">
+<p class="text-[10px] uppercase tracking-widest text-neutral-400 px-3 pb-2">Navigation</p>
+<nav class="flex flex-col gap-1 text-sm">
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../alerts_monitoring_center/code.html">Alerts Monitoring</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../deploy_simulation_configurator/code.html">Deploy Simulation</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../employee_risk_directory/code.html">Employee Risk</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../incident_management_drawer/code.html">Incident Management</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../main_dashboard/code.html">Main Dashboard</a>
+<a class="px-3 py-2 rounded-lg bg-cyan-300/20 text-cyan-200" href="../module_detail_phishing_basics/code.html">Module Detail</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../threat_analytics/code.html">Threat Analytics</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../training_intelligence_dashboard/code.html">Training Intelligence</a>
+</nav>
+</aside>
+<!-- TopNavBar Implementation -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-[0_0_20px_rgba(176,198,255,0.08)]">
+<div class="text-xl font-bold tracking-tighter text-blue-300 dark:text-blue-200 uppercase font-headline">
+            SOCIAL ENGINEERING TOOLKIT SHIELD (SETS)
+        </div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-neutral-400 hover:text-blue-200 transition-colors font-headline tracking-tight" href="#">Dashboard</a>
+<a class="text-cyan-200 font-bold border-b-2 border-cyan-300 h-full flex items-center font-headline tracking-tight" href="#">Training</a>
+<a class="text-neutral-400 hover:text-blue-200 transition-colors font-headline tracking-tight" href="#">Simulations</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-200 hover:bg-neutral-800/50 p-2 rounded-full transition-all duration-300 active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-blue-200 hover:bg-neutral-800/50 p-2 rounded-full transition-all duration-300 active:scale-95">settings</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+<img alt="Operator Profile" data-alt="Close up portrait of a serious cyber security operator with subtle blue digital screen reflections on face, high-tech moody environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAihmM78rfjL9eAvF9Mw9Y5cHE4qBhx92ZSE_0cu-l3-Ngc2KSKOi4wG7byhEpmbK_feFhKUjdb-lkb-0tY9UUPhjrJKouNItgO8e05tCM-QCPL-35U7eUE1QTJ0oE9mvtp6EbCOpocLWGcU4VQ4l-lcTihZA3Y_TJyojwDftw1luEp0LdZnPfnRZFZAX6d4Eg3iLSEF4SeG3gU_UC-S6c2XNSq6Mz7f0M4U1ovJm8n4EvuDKcTqnY69VeAxZAAwhpXYt8bhyYw4-g"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Implementation (Desktop only) -->
+<aside class="hidden md:flex h-screen w-64 flex-col fixed left-0 top-0 z-40 bg-neutral-900 dark:bg-neutral-950 border-r border-neutral-800/50 pt-20" style="display:none">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<div>
+<div class="text-on-surface font-bold text-sm font-headline">SETS-01</div>
+<div class="text-neutral-500 text-[10px] uppercase tracking-widest font-label">Active Session</div>
+</div>
+</div>
+</div>
+<div class="flex-grow">
+<a class="text-neutral-500 py-4 px-6 flex items-center gap-3 hover:bg-neutral-800/40 font-label text-xs font-medium uppercase tracking-widest transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span> Dashboard
+            </a>
+<a class="bg-blue-900/20 text-cyan-300 border-r-2 border-cyan-400 py-4 px-6 flex items-center gap-3 font-label text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">school</span> Training
+            </a>
+<a class="text-neutral-500 py-4 px-6 flex items-center gap-3 hover:bg-neutral-800/40 font-label text-xs font-medium uppercase tracking-widest transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> Simulations
+            </a>
+<a class="text-neutral-500 py-4 px-6 flex items-center gap-3 hover:bg-neutral-800/40 font-label text-xs font-medium uppercase tracking-widest transition-all" href="#">
+<span class="material-symbols-outlined">security</span> Threat Logs
+            </a>
+<a class="text-neutral-500 py-4 px-6 flex items-center gap-3 hover:bg-neutral-800/40 font-label text-xs font-medium uppercase tracking-widest transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</div>
+<div class="p-6">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-3 rounded-xl font-bold text-sm tracking-tight shadow-[0_4px_12px_rgba(176,198,255,0.2)] active:scale-95 transition-transform">
+                Deploy Sim
+            </button>
+</div>
+<div class="border-t border-neutral-800/50 py-4">
+<a class="text-neutral-500 py-2 px-6 flex items-center gap-3 hover:text-blue-100 font-label text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span> Support
+            </a>
+<a class="text-neutral-500 py-2 px-6 flex items-center gap-3 hover:text-blue-100 font-label text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 pt-16 min-h-screen bg-surface-dim">
+<div class="max-w-7xl mx-auto p-6 md:p-10">
+<!-- Hero Header / Editorial Metric Section -->
+<header class="mb-12 relative">
+<div class="absolute -top-10 -right-10 w-96 h-96 bg-primary/5 blur-[120px] rounded-full"></div>
+<nav class="flex items-center gap-2 mb-6 text-outline text-xs uppercase tracking-widest font-label">
+<a class="hover:text-primary transition-colors" href="#">Training</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Threat Modules</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-secondary">Phishing Basics</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-7xl font-bold font-headline tracking-tighter mb-4 leading-none">
+                            PHISHING <span class="text-primary italic">BASICS</span>
+</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body max-w-xl">
+                            Master the art of identifying deceptive communication and preventing credential harvesting attacks through advanced behavioral analysis.
+                        </p>
+</div>
+<div class="flex flex-col items-start md:items-end gap-2">
+<div class="flex gap-4 mb-2">
+<div class="bg-surface-container-high px-4 py-2 rounded-lg flex flex-col">
+<span class="text-[10px] text-outline font-label uppercase tracking-widest">Est. Time</span>
+<span class="text-secondary font-headline font-medium">45 MIN</span>
+</div>
+<div class="bg-tertiary-container/20 px-4 py-2 rounded-lg flex flex-col border border-tertiary-container/30">
+<span class="text-[10px] text-tertiary font-label uppercase tracking-widest">Difficulty</span>
+<span class="text-tertiary font-headline font-medium">ADVANCED</span>
+</div>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold text-lg tracking-tight shadow-[0_8px_24px_rgba(86,141,255,0.3)] hover:shadow-[0_8px_32px_rgba(86,141,255,0.4)] transition-all active:scale-95 group flex items-center gap-3">
+                            Resume Learning
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">play_arrow</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Curriculum Progress (Bento Large) -->
+<div class="md:col-span-8 flex flex-col gap-6">
+<section class="glass-panel rounded-2xl p-8 flex flex-col">
+<div class="flex justify-between items-center mb-10">
+<h2 class="font-headline text-2xl font-bold tracking-tight uppercase">Course Curriculum</h2>
+<div class="text-right">
+<div class="text-[10px] text-outline font-label uppercase tracking-widest mb-1">Overall Progress</div>
+<div class="flex items-center gap-4">
+<div class="w-32 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[85%] shadow-[0_0_8px_#00eefc]"></div>
+</div>
+<span class="text-secondary-fixed text-xl font-headline font-bold">85%</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Curriculum Item 1 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest/50 rounded-xl hover:bg-surface-container-highest/40 transition-all cursor-pointer group">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg">Identifying Headers</h3>
+<p class="text-outline text-sm font-body">Detecting spoofed source addresses and anomalies.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">navigate_next</span>
+</div>
+<!-- Curriculum Item 2 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest/50 rounded-xl hover:bg-surface-container-highest/40 transition-all cursor-pointer group border-l-4 border-primary">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center text-primary border border-primary/30 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">link</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg">URL Inspection</h3>
+<p class="text-outline text-sm font-body">Analysis of punycode, redirects, and nested domains.</p>
+</div>
+</div>
+<div class="bg-primary/20 text-primary text-[10px] px-3 py-1 rounded uppercase tracking-tighter font-bold">In Progress</div>
+</div>
+<!-- Curriculum Item 3 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest/50 rounded-xl hover:bg-surface-container-highest/40 transition-all cursor-pointer group opacity-60">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-lg bg-outline/10 flex items-center justify-center text-outline border border-outline/20">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg">Psychological Triggers</h3>
+<p class="text-outline text-sm font-body">Understanding urgency, authority, and fear-based tactics.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Side Info Cards (Bento Right) -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Quick Quiz Section -->
+<section class="glass-panel rounded-2xl p-6 flex flex-col relative overflow-hidden group">
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-secondary/10 blur-2xl group-hover:bg-secondary/20 transition-all"></div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary text-sm">bolt</span>
+<h2 class="font-headline text-sm font-bold tracking-widest uppercase text-secondary">Take Quick Quiz</h2>
+</div>
+<div class="mb-6">
+<p class="text-on-surface font-headline font-medium text-lg leading-tight mb-6">
+                                Which of the following URLs is most likely a phishing attempt for "kinetic.ai"?
+                            </p>
+<div class="space-y-3">
+<button class="w-full text-left p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container-highest transition-all group/opt">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border border-outline flex items-center justify-center text-[10px] group-hover/opt:border-primary transition-colors">A</span>
+<code class="text-sm font-body text-on-surface-variant">https://portal.kinetic.ai</code>
+</div>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-outline-variant/30 hover:border-error/50 hover:bg-error-container/10 transition-all group/opt">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border border-outline flex items-center justify-center text-[10px] group-hover/opt:border-error transition-colors">B</span>
+<code class="text-sm font-body text-on-surface-variant">https://kinetic.ai-secure.net</code>
+</div>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container-highest transition-all group/opt">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border border-outline flex items-center justify-center text-[10px] group-hover/opt:border-primary transition-colors">C</span>
+<code class="text-sm font-body text-on-surface-variant">https://kinetic.ai/login</code>
+</div>
+</button>
+</div>
+</div>
+<button class="w-full py-3 rounded-lg border border-secondary text-secondary font-headline font-bold tracking-widest uppercase text-xs hover:bg-secondary hover:text-on-secondary transition-all">
+                            Submit Answer
+                        </button>
+</section>
+<!-- Instructor / Course Stats -->
+<section class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 p-0.5">
+<img alt="Instructor" data-alt="Professional woman with a focused expression, tech background, digital nomad style, high detail cybersecurity expert portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfQ3347lhDhmkzzqs8ufTtBbmCkMvCQXW3s22bt-f1WE8G0Mrf4hgfEsgONM2xf6Bf6hIB2gufQuhTBfsszsxeSi1O7gZ2Ldjvzjh8XvWlCRYDGffOCDL_Xk3UqRr6RwzhTLwjv7MUwsh_6ujjuZp-FbMw6VzMVbTh4QZucYprTcIwDhP2igIz9ADRVZEflKvKQUvlHyJxAk59Lr3iNO7VBEvpRLtGBBcnOURzjrEw0bO40TXWi7NOsu30aDhyOJBFUhODLWsJTeU"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Dr. Sarah Vance</h4>
+<p class="text-outline text-xs font-label uppercase tracking-widest">Lead Cryptographer</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-lowest rounded-lg">
+<div class="text-[10px] text-outline uppercase font-label tracking-tighter mb-1">Students</div>
+<div class="text-on-surface font-headline font-bold">12.4k</div>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg">
+<div class="text-[10px] text-outline uppercase font-label tracking-tighter mb-1">Rating</div>
+<div class="text-secondary font-headline font-bold">4.9/5</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Knowledge Base Visual (Horizontal Bento) -->
+<section class="mt-12">
+<div class="bg-surface-container-highest/30 rounded-3xl p-1 overflow-hidden relative">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<div class="bg-surface-dim p-8 flex flex-col items-center text-center justify-center min-h-[240px]">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<h4 class="font-headline font-bold text-xl mb-2">Zero Trust Training</h4>
+<p class="text-outline text-sm font-body px-4">All modules follow NIST zero-trust architecture standards.</p>
+</div>
+<div class="bg-surface-dim p-8 flex flex-col items-center text-center justify-center min-h-[240px] relative">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Tech Pattern" class="w-full h-full object-cover" data-alt="Abstract glowing blue tech circuit board lines and data flow patterns on a dark background, high-tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAql0MFhXO7HzyQJzX3E9z0uJe0tMcVF0gQKlKCWKjGO837T5NcD6e5ah6VDJq1p1MPYP4w7BDVyvChx-ZogDlw6jnOGbL9jwXY8VIr-prWnUrCwEffDgyNgG1Y8HP0s6qJ5HsNCOnNrYXDKcOinKq9l-rXPUrFmBtJZtYzH91nT9OdVYdLL7SQXbadKIM-FRogbQKOQV9F5WEv-irhW8VcSwu-AFEQ-hRu9oi82cKFkkLcrrcpd9wkl8BaoO5mrBhSFLl8PRfEY1U"/>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-4">terminal</span>
+<h4 class="font-headline font-bold text-xl mb-2">Live Sandbox</h4>
+<p class="text-outline text-sm font-body px-4">Practice link analysis in a secure, isolated container environment.</p>
+</div>
+<div class="bg-surface-dim p-8 flex flex-col items-center text-center justify-center min-h-[240px]">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-4">verified</span>
+<h4 class="font-headline font-bold text-xl mb-2">ISO Certification</h4>
+<p class="text-outline text-sm font-body px-4">Completion grants 5 CPE credits toward CISSP maintenance.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-neutral-900/95 backdrop-blur-xl flex justify-around items-center h-20 z-50 px-4">
+<a class="flex flex-col items-center gap-1 text-neutral-400" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] uppercase font-label">Core</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-cyan-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-[10px] uppercase font-label font-bold">Learn</span>
+</a>
+<div class="bg-primary -mt-12 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(176,198,255,0.4)] border-4 border-background">
+<span class="material-symbols-outlined text-on-primary">play_arrow</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-neutral-400" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="text-[10px] uppercase font-label">Sim</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] uppercase font-label">Config</span>
+</a>
+</nav>
+</body></html>

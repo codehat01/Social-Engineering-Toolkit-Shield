@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social Engineering Toolkit Shield (SETS) | Employee Risk Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "surface-container": "#201f20",
+                        "surface-bright": "#3a393a",
+                        "on-surface-variant": "#c2c6d8",
+                        "on-primary-fixed-variant": "#00429c",
+                        "secondary-fixed": "#7df4ff",
+                        "on-tertiary-fixed": "#410001",
+                        "inverse-primary": "#0058cb",
+                        "outline": "#8c90a1",
+                        "tertiary": "#ffb4aa",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "on-background": "#e5e2e3",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#002022",
+                        "outline-variant": "#424655",
+                        "secondary": "#d3fbff",
+                        "secondary-fixed-dim": "#00dbe9",
+                        "background": "#131314",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#002d6f",
+                        "on-secondary": "#00363a",
+                        "primary-fixed": "#d9e2ff",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#313031",
+                        "surface-tint": "#b0c6ff",
+                        "on-tertiary-container": "#5c0002",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "surface-dim": "#131314",
+                        "on-tertiary": "#690003",
+                        "tertiary-container": "#ff5545",
+                        "on-primary-fixed": "#001945",
+                        "surface-container-high": "#2a2a2b",
+                        "surface-variant": "#353436",
+                        "primary": "#b0c6ff",
+                        "inverse-surface": "#e5e2e3",
+                        "on-primary-container": "#002661",
+                        "primary-container": "#568dff",
+                        "surface-container-lowest": "#0e0e0f",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e3",
+                        "on-secondary-container": "#00686f",
+                        "surface-container-low": "#1c1b1c",
+                        "surface": "#131314",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "secondary-container": "#00eefc",
+                        "surface-container-highest": "#353436"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #424655;
+            border-radius: 10px;
+        }
+        .glass-panel {
+            background: rgba(28, 27, 28, 0.7);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(140, 144, 161, 0.15);
+            border-left: 1px solid rgba(140, 144, 161, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<aside class="fixed top-20 left-4 z-[998] w-56 bg-neutral-950/90 backdrop-blur-xl border border-outline-variant/40 rounded-2xl p-3 hidden md:block">
+<p class="text-[10px] uppercase tracking-widest text-neutral-400 px-3 pb-2">Navigation</p>
+<nav class="flex flex-col gap-1 text-sm">
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../alerts_monitoring_center/code.html">Alerts Monitoring</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../deploy_simulation_configurator/code.html">Deploy Simulation</a>
+<a class="px-3 py-2 rounded-lg bg-cyan-300/20 text-cyan-200" href="../employee_risk_directory/code.html">Employee Risk</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../incident_management_drawer/code.html">Incident Management</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../main_dashboard/code.html">Main Dashboard</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../module_detail_phishing_basics/code.html">Module Detail</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../threat_analytics/code.html">Threat Analytics</a>
+<a class="px-3 py-2 rounded-lg hover:bg-white/10" href="../training_intelligence_dashboard/code.html">Training Intelligence</a>
+</nav>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-neutral-950/80 backdrop-blur-xl shadow-[0_0_20px_rgba(176,198,255,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-blue-300 dark:text-blue-200 font-headline">SOCIAL ENGINEERING TOOLKIT SHIELD (SETS)</span>
+<div class="relative hidden md:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-neutral-400 text-sm">search</span>
+<input class="bg-neutral-900 border-none text-xs font-headline tracking-widest px-10 py-2 rounded-none focus:ring-1 focus:ring-primary w-64 uppercase" placeholder="GLOBAL_SEARCH_..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-neutral-400 font-space-grotesk text-sm uppercase tracking-wider hover:text-blue-300 transition-colors duration-300" href="#">SYSTEM_MAP</a>
+<a class="text-cyan-200 font-bold font-space-grotesk text-sm uppercase tracking-wider hover:text-blue-300 transition-colors duration-300" href="#">ENTITY_DIRECTORY</a>
+<a class="text-neutral-400 font-space-grotesk text-sm uppercase tracking-wider hover:text-blue-300 transition-colors duration-300" href="#">LOGS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-blue-200 dark:text-blue-100 hover:text-blue-300 transition-colors duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male system operator in a dark tech-focused environment with subtle blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0UhvNZi6aM-lf5u55wYZVEB9mCeGT1Ccb7YSZBWIquqgkXdqt3lOGCmzA4cx4X-HyyO8se06V5Dm_huagptp7C4qMc8g5AM8dMtZ5Bp9Pg1yPOLHuC-GTu40jvLJYSndZ1UYpkNgl3bsfTMMQjcjP3Efe4i4nu3t7gaKksX0-EmIcFhhXlhd0H-VM_zWRSr5Quq48husTkg0cmrbNadT_ix7KniXDCGHmJq_66mQxEmhqtInKP7FW5DEKarRFkORS20euj5G5Bsk"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-[60] flex flex-col border-r border-white/5 bg-neutral-900/90 backdrop-blur-2xl shadow-2xl w-64" style="display:none">
+<div class="p-6 border-b border-white/5 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">shield_person</span>
+</div>
+<div>
+<div class="font-headline text-xs font-bold tracking-widest text-on-surface uppercase">OPERATOR_01</div>
+<div class="font-headline text-[10px] text-neutral-500 uppercase tracking-tighter">Level 4 Clearance</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:bg-neutral-800/40 hover:text-blue-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="text-cyan-300 bg-neutral-800/60 border-r-2 border-cyan-400 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em]" href="#">
+<span class="material-symbols-outlined">group</span> Employees
+            </a>
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:bg-neutral-800/40 hover:text-blue-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">query_stats</span> Threat Analytics
+            </a>
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:bg-neutral-800/40 hover:text-blue-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">notifications_active</span> Alerts
+            </a>
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:bg-neutral-800/40 hover:text-blue-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">emergency_home</span> Incidents
+            </a>
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:bg-neutral-800/40 hover:text-blue-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span> Training
+            </a>
+</nav>
+<div class="p-4 border-t border-white/5">
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:text-blue-200 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+<a class="text-neutral-500 py-3 px-4 flex items-center gap-3 font-space-grotesk text-xs font-medium uppercase tracking-[0.1em] hover:text-blue-200 transition-all" href="#">
+<span class="material-symbols-outlined">help_center</span> Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<header class="mb-8 flex justify-between items-end">
+<div>
+<h1 class="font-headline text-3xl font-bold tracking-tight text-on-surface uppercase mb-2">Employee Risk Directory</h1>
+<p class="text-neutral-500 text-sm font-body">Internal identity monitoring and behavioral risk assessment database.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center bg-surface-container-low px-4 py-2 border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-primary mr-2">filter_alt</span>
+<select class="bg-transparent border-none text-xs font-headline tracking-widest uppercase focus:ring-0 cursor-pointer">
+<option>All Departments</option>
+<option>Finance</option>
+<option>HR</option>
+<option>IT</option>
+<option>Legal</option>
+</select>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 font-headline text-xs font-bold tracking-widest uppercase hover:bg-primary-container transition-colors">
+                    Export Report
+                </button>
+</div>
+</header>
+<!-- Stats Row -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="glass-panel p-6 border-l-4 border-l-error">
+<div class="text-[10px] font-headline tracking-widest text-neutral-500 uppercase mb-1">Critical Risks</div>
+<div class="text-3xl font-headline font-bold text-error">12</div>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-tertiary">
+<div class="text-[10px] font-headline tracking-widest text-neutral-500 uppercase mb-1">Watchlist Active</div>
+<div class="text-3xl font-headline font-bold text-tertiary">48</div>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-secondary-fixed-dim">
+<div class="text-[10px] font-headline tracking-widest text-neutral-500 uppercase mb-1">Safe Entities</div>
+<div class="text-3xl font-headline font-bold text-secondary-fixed-dim">1,240</div>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-primary">
+<div class="text-[10px] font-headline tracking-widest text-neutral-500 uppercase mb-1">Mean Risk Score</div>
+<div class="text-3xl font-headline font-bold text-primary">24.5</div>
+</div>
+</div>
+<!-- High Density Table Container -->
+<div class="glass-panel overflow-hidden flex flex-col h-[calc(100vh-420px)] min-h-[500px]">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 z-20 bg-surface-container-highest/90 backdrop-blur-md">
+<tr class="border-b border-outline-variant/15">
+<th class="px-6 py-4">
+<button class="flex items-center gap-2 group">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase group-hover:text-primary transition-colors">Employee Name</span>
+<span class="material-symbols-outlined text-xs text-neutral-600">swap_vert</span>
+</button>
+</th>
+<th class="px-6 py-4">
+<button class="flex items-center gap-2 group">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase group-hover:text-primary transition-colors">Department</span>
+<span class="material-symbols-outlined text-xs text-neutral-600">swap_vert</span>
+</button>
+</th>
+<th class="px-6 py-4">
+<button class="flex items-center gap-2 group">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase group-hover:text-primary transition-colors">Risk Score</span>
+<span class="material-symbols-outlined text-xs text-neutral-600">swap_vert</span>
+</button>
+</th>
+<th class="px-6 py-4">
+<button class="flex items-center gap-2 group">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase group-hover:text-primary transition-colors">Status</span>
+<span class="material-symbols-outlined text-xs text-neutral-600">swap_vert</span>
+</button>
+</th>
+<th class="px-6 py-4">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase">Last Activity</span>
+</th>
+<th class="px-6 py-4 text-right">
+<span class="text-[10px] font-headline tracking-widest text-neutral-400 uppercase">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Critical Row -->
+<tr class="hover:bg-error/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-error/20 text-error">JD</div>
+<div>
+<div class="text-sm font-medium text-on-surface">Julian Drumm</div>
+<div class="text-[10px] text-neutral-500 font-headline uppercase">ID: 9942-X</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">Finance</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 92%"></div>
+</div>
+<span class="text-xs font-headline font-bold text-error">92</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-error-container text-error border border-error/30 rounded-sm">Critical</span>
+</td>
+<td class="px-6 py-4 text-xs text-neutral-500">2m ago (unauthorized API call)</td>
+<td class="px-6 py-4 text-right">
+<button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<!-- Watchlist Row -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-tertiary/20 text-tertiary">SA</div>
+<div>
+<div class="text-sm font-medium text-on-surface">Sarah Al-Farsi</div>
+<div class="text-[10px] text-neutral-500 font-headline uppercase">ID: 8821-C</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">IT</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 68%"></div>
+</div>
+<span class="text-xs font-headline font-bold text-tertiary">68</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-on-tertiary-fixed-variant/20 text-tertiary border border-tertiary/20 rounded-sm">Watchlist</span>
+</td>
+<td class="px-6 py-4 text-xs text-neutral-500">1h ago (multiple failed logins)</td>
+<td class="px-6 py-4 text-right">
+<button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<!-- Safe Row -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-secondary/20 text-secondary">MK</div>
+<div>
+<div class="text-sm font-medium text-on-surface">Marcus Kane</div>
+<div class="text-[10px] text-neutral-500 font-headline uppercase">ID: 4102-L</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">Legal</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full" style="width: 12%"></div>
+</div>
+<span class="text-xs font-headline font-bold text-secondary-fixed-dim">12</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-on-secondary-fixed-variant/20 text-secondary-fixed-dim border border-secondary-fixed-dim/20 rounded-sm">Safe</span>
+</td>
+<td class="px-6 py-4 text-xs text-neutral-500">Normal operations</td>
+<td class="px-6 py-4 text-right">
+<button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<!-- Repeated Mock Rows for density effect -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-primary/20 text-primary">EB</div>
+<div>
+<div class="text-sm font-medium text-on-surface">Elena Belova</div>
+<div class="text-[10px] text-neutral-500 font-headline uppercase">ID: 2219-F</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">Finance</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full" style="width: 05%"></div>
+</div>
+<span class="text-xs font-headline font-bold text-secondary-fixed-dim">05</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-on-secondary-fixed-variant/20 text-secondary-fixed-dim border border-secondary-fixed-dim/20 rounded-sm">Safe</span>
+</td>
+<td class="px-6 py-4 text-xs text-neutral-500">Normal operations</td>
+<td class="px-6 py-4 text-right">
+<button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<!-- Critical Row 2 -->
+<tr class="hover:bg-error/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-error/20 text-error">TL</div>
+<div>
+<div class="text-sm font-medium text-on-surface">Thomas Lowery</div>
+<div class="text-[10px] text-neutral-500 font-headline uppercase">ID: 6632-G</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">HR</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 84%"></div>
+</div>
+<span class="text-xs font-headline font-bold text-error">84</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-error-container text-error border border-error/30 rounded-sm">Critical</span>
+</td>
+<td class="px-6 py-4 text-xs text-neutral-500">12m ago (mass data export)</td>
+<td class="px-6 py-4 text-right">
+<button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<!-- Filling space with 45+ generic similar rows for visual density -->
+<script>
+                            const names = ["Aria Vance", "Ben Cho", "Celia Cruz", "David Kim", "Eva Thorne", "Felix Grant", "Gara Lin", "Hugo Boss", "Iris West", "Jack Reacher"];
+                            const depts = ["Finance", "HR", "IT", "Legal"];
+                            const tbody = document.querySelector('tbody');
+                            for (let i = 0; i < 45; i++) {
+                                const score = Math.floor(Math.random() * 60);
+                                const name = names[i % names.length] + " " + (i + 100);
+                                tbody.innerHTML += `
+                                    <tr class="hover:bg-white/5 transition-colors group">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-[10px] font-headline border border-outline-variant/20 text-neutral-500">${name.substring(0, 2).toUpperCase()}</div>
+                                                <div>
+                                                    <div class="text-sm font-medium text-on-surface">${name}</div>
+                                                    <div class="text-[10px] text-neutral-500 font-headline uppercase">ID: ${1000 + i}-A</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-xs font-label uppercase tracking-wider text-neutral-400">${depts[i % 4]}</td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-16 h-1 bg-neutral-800 rounded-full overflow-hidden">
+                                                    <div class="bg-primary h-full" style="width: ${score}%"></div>
+                                                </div>
+                                                <span class="text-xs font-headline font-bold text-primary">${score}</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-0.5 text-[9px] font-headline font-bold uppercase tracking-widest bg-surface-container-high text-neutral-400 border border-outline-variant/20 rounded-sm">Safe</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-xs text-neutral-500">Periodic Check-in</td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-neutral-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+                                        </td>
+                                    </tr>
+                                `;
+                            }
+                        </script>
+</tbody>
+</table>
+</div>
+<!-- Table Footer/Pagination -->
+<div class="p-4 border-t border-outline-variant/15 bg-surface-container-low flex justify-between items-center mt-auto">
+<div class="text-[10px] font-headline tracking-widest text-neutral-500 uppercase">
+                    Showing 1-50 of 1,300 ENTITIES
+                </div>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center text-neutral-500 hover:text-primary transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary/10 text-primary border border-primary/30 text-[10px] font-headline">1</button>
+<button class="w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-primary text-[10px] font-headline">2</button>
+<button class="w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-primary text-[10px] font-headline">3</button>
+<button class="w-8 h-8 flex items-center justify-center text-neutral-500 hover:text-primary transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Background Gradients -->
+<div class="fixed top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 w-[300px] h-[300px] bg-error/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+</body></html>
